@@ -1,13 +1,29 @@
 import logo from './logo.svg';
+import { useState, useEffect } from "react";
 import './App.css';
 
+const fetchData = () => {
+  return fetch("https://api.tidepool.finance/v1/stats/latest/")
+        .then((response) => response.json());
+      }
+
+
+
 function App() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const data = fetchData()
+    console.log(data);
+    setData(data.toString());
+    }, []);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Hello, Arnav!
+          { data }
         </p>
         <a
           className="App-link"
