@@ -13,9 +13,15 @@ function App() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const data = fetchData()
-    console.log(data);
-    setData(data.toString());
+    fetchData().then((data) => {
+        const pairs = [];
+        Object.keys(data).forEach(key => {
+          console.log(key, data[key]);
+          pairs.push(<p> { key } { data[key].toString() } </p>)
+        });
+        setData(pairs);
+      }
+    );
     }, []);
 
   return (
