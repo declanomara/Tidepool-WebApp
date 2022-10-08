@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
-      <Link class="navbar-brand ms-3" to="/">Journal</Link>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+      <Link className="navbar-brand ms-3" to="/">Tidepool Finance</Link>
 
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
+      <ul className="navbar-nav mr-auto">
+        <li className="nav-item">
+          <a className="nav-link" href="/#about">About</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Purchase</a>
+        <li className="nav-item">
+          <a className="nav-link" href="/#">Solutions</a>
         </li>
       </ul>
 
-      <div class="navbar-nav ml-auto">
-        <Link class="navbar-item border border-light rounded" to="/journal"><a class="m-1 text-light">Launch Journal App! </a></Link>
+      <div className="navbar-nav ml-auto">
+        <Link className="navbar-item border border-light rounded m-1 text-light" to="/dashboard">Launch Dashboard</Link>
       </div>
     </nav>
   );
