@@ -16,7 +16,7 @@ function Navbar() {
       </ul>
 
       <div className="navbar-nav ml-auto">
-        <Link className="navbar-item border border-light rounded m-1 text-light" to="/dashboard">Launch Dashboard</Link>
+        <Link className="navbar-item border border-light rounded m-1 text-light" to="/dashboard"><span className="mx-1">Launch Dashboard</span></Link>
       </div>
     </nav>
   );

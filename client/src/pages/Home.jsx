@@ -1,16 +1,28 @@
 import React from 'react';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import ImageBehind from '../components/ImageBehind';
 
 function Home() {
     return (
-        <div className="m-4">
-            <div className="w-75">
-                <h3 >Innovative investing solutions.</h3>
-                <p className="font-weight-light">Mauris eu porttitor diam. Sed suscipit hendrerit felis ac commodo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam feugiat felis ac egestas luctus. Fusce non convallis quam. Praesent vestibulum urna eu urna congue, sed sodales libero maximus. Vestibulum euismod pretium ante, vel mattis nulla auctor in. Pellentesque sodales condimentum quam, at fringilla sem facilisis et. Fusce id vehicula est. Nullam vel ante facilisis, accumsan velit id, porta lectus. Nullam pharetra nisl vel leo volutpat, eget bibendum quam pulvinar. Praesent sapien sapien, vehicula et dolor vel, viverra faucibus ex. Nullam volutpat convallis diam, quis ornare nisl porta vitae. Phasellus aliquam, magna quis malesuada pharetra, urna urna commodo ante, vel laoreet turpis ligula ut est. Integer vel tincidunt purus.</p>
-            </div>
-            <div className="w-75 mt-5 float-right">
-                <h3 className="float-right">Data driven development to ensure accuracy.</h3>
-                <p className="font-weight-light float-right">Ut sed dolor nisl. Integer nec maximus ipsum, ac elementum est. Donec vehicula augue at erat imperdiet volutpat. Nullam a libero cursus, semper metus pulvinar, convallis turpis. Vivamus sodales pellentesque tellus. Phasellus accumsan blandit nisi ut aliquam. Etiam facilisis feugiat egestas. Donec faucibus augue vitae aliquam accumsan. Aliquam erat volutpat. Etiam nisl nisl, lacinia vel scelerisque ac, tempor in metus. Integer vitae ante eu tellus commodo aliquam. Nunc accumsan efficitur ex, et maximus massa aliquet et. Aliquam erat volutpat. Donec laoreet, enim vel porta dignissim, dolor odio euismod dui, id suscipit mauris augue nec ipsum. Vivamus cursus at justo ut ultrices. Aliquam gravida nisi eu rhoncus blandit.</p>
-            </div>
+        <div>
+            {/* <Image src="https://tidepool-cdn.s3.amazonaws.com/tidepool-highres.jpg" rounded></Image> */}
+            <ImageBehind></ImageBehind>
+            <div className="m-4">
+                <div className="w-75">
+                    <h3 >Innovative investing solutions.</h3>
+                    <p className="font-weight-light">
+                        Tidepool finance is dedicated to always using cutting-edge technology to ensure that customers are receiving the highest quality product possible.
+                        Tidepool leverages modern serverless design as well as cloud based infrastructure, so you can feel safe knowing your data is secure in the hands of industry giants.
+                        Furthermore, all Tidepool algorithms are built in-house by our talented quantitative analysts to guarantee maximum alpha and minimal risk. 
+                    </p>
+                </div>
+                <div className="w-75 mt-5 float-right">
+                    <h3 className="float-right">Data driven development to ensure accuracy.</h3>
+                    <p className="font-weight-light float-right">
+                        Tidepool uses a wide variety of data sources allowing our algorithms to make decisions with all possible information available. This means that our trade signals are based on more information than any single human can process. Our data collection algorithms are constantly gathering new data to ensure data is accurate and up to date.
+                    </p>
+                </div>
+            </div>  
         </div>
     );
 }
