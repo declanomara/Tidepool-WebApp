@@ -1,12 +1,14 @@
 import React from "react";
 import {Outlet} from "react-router-dom";
-import Navbar from "../components/Navbar";
+import TransparentNavbar from "../components/TransparentNavbar";
+import Footer from "../components/Footer";
 
 const Layout = () => {
   return (
-    <div>
-      <Navbar />
+    <div style={{"backgroundColor": "#66B2B2"}}>
+      <TransparentNavbar />
       <Outlet />
+      <Footer/>
     </div>
   );
 };

@@ -1,15 +1,15 @@
 import React from 'react';
-// import Plotly from "plotly.js-cartesian-dist";
-// import createPlotlyComponent from "react-plotly.js/factory";
 import Chart from 'chart.js/auto';
 import { Scatter } from "react-chartjs-2";
 
-// const Plot = createPlotlyComponent(Plotly);
 
 function DataVizCard () {
     var x = [];
     var y = [];
     var raw_data = []
+
+    var _ = Chart;
+    if(_ === ''){console.log("just for linter")}
 
     for(var i = 0; i < 100; i++) {
         x.push(i);

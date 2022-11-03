@@ -1,14 +1,23 @@
 import React from 'react';
 
-function Section ({primary, secondary}) {
+function Section ({index, content, id}) {
+    const colors = [
+        "#b2d8d8",
+        "#66b2b2",
+        "#008080",
+        "#006666",
+        "#004c4c"
+    ];
+
+    const backgroundColor = colors[index];
+    const style = {
+        "minHeight": "50vh",
+        "backgroundColor": backgroundColor
+    }
+
     return (
-        <div className="row">
-            <div className="col-md-6 my-4">
-                {primary}
-            </div>
-            <div className="col-md-6 my-4">
-                {secondary}
-            </div>
+        <div id={id} style={style}>
+            {content}
         </div>
     )
 }
