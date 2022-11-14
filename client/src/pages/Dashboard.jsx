@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import DataIntakeInfo from '../components/DataIntakeCard';
+import DataIntakeCard from '../components/DataIntakeCard';
 import DataVizCard from '../components/DataVizCard';
-import { loadAggregateData } from "../util/content";
+import { getCurrencyCounts, getCurrencyRates } from "../util/content";
 
 function Dashboard() {
-    const [data, setData] = useState([]);
+    const [counts, setCounts] = useState([]);
+    const [rates, setRates] = useState([]);
+
 
     useEffect(() => {
-        loadAggregateData().then((data) => {
-            setData(data);
+        getCurrencyCounts().then((data) => {
+            setCounts(data);
         });
+
+        getCurrencyRates().then((data) => {
+            setRates(data);
+        });
+
+
         }, []);
 
     return (
@@ -21,7 +29,7 @@ function Dashboard() {
                     </div>
                 </div>
                 <div className="col-xs-12 col-lg-3">
-                    <DataIntakeInfo data={data} />
+                    <DataIntakeCard counts={counts} rates={rates} />
                 </div>
             </div>
         </div>

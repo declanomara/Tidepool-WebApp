@@ -1,33 +1,47 @@
 import React, { useState, useEffect, useCallback} from 'react';
 import DataListItem from './DataListItem';
 
-function DataIntakeInfo({data}) {
+function DataIntakeInfo({counts, rates}) {
     const [currencyInfos, setCurrencyInfos] = useState();
     const [selectedDataType, setSelectedDataType] = useState("Count");
 
+
+    console.log(rates);
     const setDisplayType = useCallback((dataType) => {
         const currencies = [];
 
-        for(var k in data) {
-            var fractionDigits;
-            if(dataType === "count") {
-                fractionDigits = 0;
+        if (dataType === "count") {
+            for (const [key, value] of Object.entries(counts)) {
+                const display = Number(value).toLocaleString(undefined, {minimumFractionDigits: 0});
+                currencies.push(<DataListItem key={key} k={key} value={display} />);
             }
-
-            if(dataType === "data_rate") {
-                fractionDigits = 2;
-            }
-
-            var value = Number(data[k][dataType]);
-            var displayValue = value.toLocaleString(undefined, {minimumFractionDigits: fractionDigits});
-            
-            currencies.push(<DataListItem key={k} k={k} value={value} displayValue={displayValue} />);
         }
+
+        if (dataType === "rate") {
+            for (const [key, value] of Object.entries(rates)) {
+                const display = Number(value['rate']).toLocaleString(undefined, {minimumFractionDigits: 2});
+                currencies.push(<DataListItem key={key} k={key} value={display} />);
+            }
+        }
+
+        // for(var k in counts) {
+        //     var value;
+
+        //     if(dataType === "count") {
+        //         value = Number(counts[k]).toLocaleString(undefined, {minimumFractionDigits: 0});
+        //     }
+
+        //     if(dataType === "data_rate") {
+        //         value = Number(rates[k]["rate"]).toLocaleString(undefined, {minimumFractionDigits: 2});
+        //     }
+            
+        //     currencies.push(<DataListItem key={k} k={k} value={value} />);
+        // }
         
         currencies.sort((a, b) => { return a.value > b.value ? 1 : -1});
 
         setCurrencyInfos(currencies);
-    }, [data]);
+    }, [counts, rates]);
 
     useEffect(() => {
         setDisplayType("count");
